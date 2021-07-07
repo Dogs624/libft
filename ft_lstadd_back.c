@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvander- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/02 10:29:47 by jvander-          #+#    #+#             */
-/*   Updated: 2021/07/07 14:39:57 by jvander-         ###   ########.fr       */
+/*   Created: 2021/07/07 11:15:01 by jvander-          #+#    #+#             */
+/*   Updated: 2021/07/07 14:00:29 by jvander-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+void	ft_lstadd_back(t_list **alst, t_list *new)
 {
-	char	*char_s;
-	char	char_c;
-	int		pos_c;
-	int		i;
+	t_list	*temp;
 
-	i = 0;
-	char_s = (char *) s;
-	char_c = (char) c;
-	pos_c = -1;
-	while (char_s[i] != '\0')
+	temp = *alst;
+	if (temp != NULL && new != NULL)
 	{
-		if (char_s[i] == char_c)
-			pos_c = i;
-		i++;
+		while (temp->next != NULL)
+		{
+			temp = temp->next;
+		}	
+		temp->next = new;
 	}
-	if (char_c == '\0')
-		return (&char_s[i]);
-	if (pos_c != -1)
-		return (&char_s[pos_c]);
-	return (NULL);
+	if (*alst == NULL)
+		*alst = new;
 }

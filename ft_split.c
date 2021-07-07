@@ -6,7 +6,7 @@
 /*   By: jvander- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 14:07:10 by jvander-          #+#    #+#             */
-/*   Updated: 2021/07/07 08:42:27 by jvander-         ###   ########.fr       */
+/*   Updated: 2021/07/07 15:00:07 by jvander-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	ft_word_size(char *s, int c)
 	int	i;
 
 	i = 0;
-	while (s[i] != '\0' && s[i] != c)
+	while (s[i]  && s[i] != c)
 		i++;
 	return (i);
 }
@@ -61,12 +61,12 @@ char	*ft_strncpy(char *s, int size)
 {
 	char	*to_ret;
 
-	to_ret = malloc(sizeof(char) * (size + 1));
+	to_ret = malloc(sizeof(char) * (size));
 	if (to_ret == NULL)
 		return (NULL);
 	to_ret[size] = '\0';
 	size--;
-	while (size >= 0)
+	while (size >= 0 && s[size])
 	{
 		to_ret[size] = s[size];
 		size--;
@@ -90,9 +90,9 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	i = 0;
 	j = 0;
-	while (s[i] != '\0')
+	while (s[i])
 	{
-		while (s[i] != '\0' && s[i] == c)
+		while (s[i]  && s[i] == c)
 			i++;
 		tab[j++] = ft_strncpy((char *) s + i, ft_word_size((char *) s + i, c));
 		if (tab[j - 1] == NULL)

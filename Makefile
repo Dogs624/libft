@@ -6,7 +6,7 @@
 #    By: jvander- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/02 10:07:20 by jvander-          #+#    #+#              #
-#    Updated: 2021/07/05 08:55:16 by jvander-         ###   ########.fr        #
+#    Updated: 2021/07/07 14:03:10 by jvander-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,15 +51,31 @@ SRC		=	ft_isdigit.c \
 			ft_calloc.c \
 			ft_strdup.c
 
+BONUS	=	ft_lstnew.c \
+			ft_lstadd_front.c \
+			ft_lstsize.c \
+			ft_lstlast.c \
+			ft_lstadd_back.c \
+			ft_lstdelone.c \
+			ft_lstclear.c \
+			ft_lstiter.c \
+			ft_lstmap.c
+
+
+
 OBJ		=	$(SRC:%.c=%.o)
+
+OBJBONUS	=	$(BONUS:%.c=%.o)
 
 all:	$(NAME)
 
 $(NAME): $(OBJ)
 		ar -rcs $(NAME) $(OBJ)
 
+bonus:	$(OBJBONUS)
+		ar -rcs $(NAME) $(OBJBONUS)
 clean:
-		rm -f $(OBJ)
+		rm -f $(OBJ) $(OBJBONUS)
 
 fclean:	clean
 		rm -f $(NAME)

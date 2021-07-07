@@ -1,37 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvander- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/02 10:29:47 by jvander-          #+#    #+#             */
-/*   Updated: 2021/07/07 14:39:57 by jvander-         ###   ########.fr       */
+/*   Created: 2021/07/07 10:28:21 by jvander-          #+#    #+#             */
+/*   Updated: 2021/07/07 10:52:41 by jvander-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+t_list	*ft_lstnew(void *content)
 {
-	char	*char_s;
-	char	char_c;
-	int		pos_c;
-	int		i;
+	t_list	*to_ret;
 
-	i = 0;
-	char_s = (char *) s;
-	char_c = (char) c;
-	pos_c = -1;
-	while (char_s[i] != '\0')
-	{
-		if (char_s[i] == char_c)
-			pos_c = i;
-		i++;
-	}
-	if (char_c == '\0')
-		return (&char_s[i]);
-	if (pos_c != -1)
-		return (&char_s[pos_c]);
-	return (NULL);
+	to_ret = malloc(sizeof(t_list));
+	if (to_ret == NULL)
+		return (NULL);
+	to_ret->content = content;
+	to_ret->next = NULL;
+	return (to_ret);
 }

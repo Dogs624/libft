@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvander- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/02 10:29:47 by jvander-          #+#    #+#             */
-/*   Updated: 2021/07/07 14:39:57 by jvander-         ###   ########.fr       */
+/*   Created: 2021/07/07 13:25:40 by jvander-          #+#    #+#             */
+/*   Updated: 2021/07/07 14:08:11 by jvander-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	char	*char_s;
-	char	char_c;
-	int		pos_c;
-	int		i;
+	t_list	*temp;
+	t_list	*to_ret;
 
-	i = 0;
-	char_s = (char *) s;
-	char_c = (char) c;
-	pos_c = -1;
-	while (char_s[i] != '\0')
+	if (lst == NULL)
+		return (NULL);
+	to_ret = ft_lstnew(f(lst->content));
+	if (to_ret == NULL)
+		return (NULL);
+	lst = lst->next;
+	while (lst != NULL)
 	{
-		if (char_s[i] == char_c)
-			pos_c = i;
-		i++;
+		temp = ft_lstnew(f(lst->content));
+		if (temp == NULL)
+			ft_lstclear(&temp, del);
+		ft_lstadd_back(&to_ret, temp);
+		lst = lst->next;
 	}
-	if (char_c == '\0')
-		return (&char_s[i]);
-	if (pos_c != -1)
-		return (&char_s[pos_c]);
-	return (NULL);
+	return (to_ret);
 }

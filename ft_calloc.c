@@ -6,7 +6,7 @@
 /*   By: jvander- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 10:34:10 by jvander-          #+#    #+#             */
-/*   Updated: 2021/07/05 12:01:12 by jvander-         ###   ########.fr       */
+/*   Updated: 2021/07/07 14:22:51 by jvander-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@ void	*ft_calloc(size_t count, size_t size)
 {
 	void	*to_ret;
 
+	if (count == 0 || size == 0)
+	{
+		count = 1;
+		size = 1;
+	}
 	to_ret = malloc(count * size);
 	if (!to_ret)
 		return (NULL);

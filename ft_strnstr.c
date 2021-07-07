@@ -6,7 +6,7 @@
 /*   By: jvander- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 10:33:14 by jvander-          #+#    #+#             */
-/*   Updated: 2021/07/05 11:27:46 by jvander-         ###   ########.fr       */
+/*   Updated: 2021/07/07 14:49:07 by jvander-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	size_t	i;
 	size_t	j;
 
-	if (haystack == NULL && needle == NULL)
-		return (NULL);
 	if (needle[0] == 0)
 		return ((char *) haystack);
 	i = 0;
