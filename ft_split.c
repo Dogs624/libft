@@ -6,7 +6,7 @@
 /*   By: jvander- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 14:07:10 by jvander-          #+#    #+#             */
-/*   Updated: 2021/07/05 13:58:21 by jvander-         ###   ########.fr       */
+/*   Updated: 2021/07/07 08:42:27 by jvander-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ char	**ft_split(char const *s, char c)
 	int		nbr_words;
 	int		i;
 	int		size_word;
-	int		count;
+	int		j;
 
 	if (s == NULL)
 		return (NULL);
@@ -89,14 +89,14 @@ char	**ft_split(char const *s, char c)
 	if (tab == NULL)
 		return (NULL);
 	i = 0;
-	count = 0;
+	j = 0;
 	while (s[i] != '\0')
 	{
 		while (s[i] != '\0' && s[i] == c)
 			i++;
-		tab[count++] = ft_strncpy((char *) s + i, ft_word_size((char *) s + i, c));
-		if (tab[count - 1] == NULL)
-			return (ft_free(tab, count - 1));
+		tab[j++] = ft_strncpy((char *) s + i, ft_word_size((char *) s + i, c));
+		if (tab[j - 1] == NULL)
+			return (ft_free(tab, j - 1));
 		i += ft_word_size((char *) s + i, c);
 	}
 	tab[nbr_words] = 0;

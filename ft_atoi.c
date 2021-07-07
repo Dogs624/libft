@@ -6,11 +6,18 @@
 /*   By: jvander- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 10:33:48 by jvander-          #+#    #+#             */
-/*   Updated: 2021/07/05 11:58:12 by jvander-         ###   ########.fr       */
+/*   Updated: 2021/07/07 08:45:52 by jvander-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+int	ft_check_longmax(int negative)
+{
+	if (negative == -1)
+		return (0);
+	return (-1);
+}
 
 int	ft_atoi(const char *s)
 {
@@ -37,6 +44,6 @@ int	ft_atoi(const char *s)
 		i++;
 	}
 	if (res > LLONG_MAX)
-	   return (negative == -1 ? 0 : -1);
+		return (ft_check_longmax(negative));
 	return (res * negative);
 }

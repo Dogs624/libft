@@ -6,7 +6,7 @@
 /*   By: jvander- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 13:41:17 by jvander-          #+#    #+#             */
-/*   Updated: 2021/07/05 12:56:19 by jvander-         ###   ########.fr       */
+/*   Updated: 2021/07/07 08:48:37 by jvander-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,4 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (new_str == NULL)
 		return (NULL);
 	return (new_str);
-
 }
-

@@ -6,7 +6,7 @@
 /*   By: jvander- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 10:27:09 by jvander-          #+#    #+#             */
-/*   Updated: 2021/07/06 15:52:07 by jvander-         ###   ########.fr       */
+/*   Updated: 2021/07/07 08:39:41 by jvander-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 {
 	unsigned char	*char_s;
 	unsigned char	char_c;
-	size_t	i;
+	size_t			i;
 
 	i = 0;
 	if (s == NULL && c < 0)

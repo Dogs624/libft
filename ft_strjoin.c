@@ -6,7 +6,7 @@
 /*   By: jvander- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 13:30:08 by jvander-          #+#    #+#             */
-/*   Updated: 2021/07/05 12:18:47 by jvander-         ###   ########.fr       */
+/*   Updated: 2021/07/07 08:47:17 by jvander-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		count;
 	char	*new_str;
 	int		s1_len;
-	
+
 	if (s1 == NULL || s2 == NULL)
 		return (NULL);
 	s1_len = ft_strlen(s1);

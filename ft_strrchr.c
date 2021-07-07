@@ -6,7 +6,7 @@
 /*   By: jvander- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 10:29:47 by jvander-          #+#    #+#             */
-/*   Updated: 2021/07/05 09:49:24 by jvander-         ###   ########.fr       */
+/*   Updated: 2021/07/07 08:47:45 by jvander-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ char	*ft_strrchr(const char *s, int c)
 {
 	char	*char_s;
 	char	char_c;
-	int	pos_c;
-	int	i;
+	int		pos_c;
+	int		i;
 
 	i = 0;
 	char_s = (char *) s;
