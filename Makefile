@@ -6,7 +6,7 @@
 #    By: jvander- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/02 10:07:20 by jvander-          #+#    #+#              #
-#    Updated: 2021/07/07 14:03:10 by jvander-         ###   ########.fr        #
+#    Updated: 2021/07/08 09:09:53 by jvander-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,8 @@ SRC		=	ft_isdigit.c \
 			ft_strnstr.c \
 			ft_atoi.c \
 			ft_calloc.c \
-			ft_strdup.c
+			ft_strdup.c \
+			ft_striteri.c
 
 BONUS	=	ft_lstnew.c \
 			ft_lstadd_front.c \
