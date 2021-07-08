@@ -6,7 +6,7 @@
 /*   By: jvander- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 10:32:04 by jvander-          #+#    #+#             */
-/*   Updated: 2021/07/07 10:21:49 by jvander-         ###   ########.fr       */
+/*   Updated: 2021/07/08 11:42:55 by jvander-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,23 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 
 	dst_len = ft_strlen(dst);
 	src_len = ft_strlen(src);
+	i = 0;
 	if (dst == NULL && src == NULL)
 		return (-1);
+	if (dstsize == 0)
+		return (src_len);
 	if (dstsize < dst_len)
 		return (src_len + dstsize);
-	i = 0;
-	while (src[i] != '\0' && i < dstsize - dst_len - 1)
+	while (src[i] != '\0' && (dst_len + i) < dstsize)
 	{
 		dst[i + dst_len] = src[i];
 		i++;
 	}
-	if (i <= dstsize - dst_len - 1)
-		dst[i + dst_len] = '\0';
-	if (dst_len < dstsize)
-		return (dst_len + src_len);
+	if ((dst_len + i) == dstsize && dstsize > dst_len)
+	{
+		dst[dst_len + i - 1] = '\0';
+	}
 	else
-		return (dstsize + src_len);
+		dst[dst_len + i] = '\0';
+	return (src_len + dst_len);
 }
