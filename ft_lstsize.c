@@ -6,7 +6,7 @@
 /*   By: jvander- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 11:04:25 by jvander-          #+#    #+#             */
-/*   Updated: 2021/07/07 14:01:34 by jvander-         ###   ########.fr       */
+/*   Updated: 2021/07/21 11:31:55 by jvander-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	ft_lstsize(t_list *lst)
 	int		res;
 	t_list	*temp;
 
+	if (lst == NULL)
+		return (-1);
 	res = 0;
 	temp = lst;
 	while (temp != NULL)

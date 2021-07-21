@@ -6,7 +6,7 @@
 /*   By: jvander- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 14:07:10 by jvander-          #+#    #+#             */
-/*   Updated: 2021/07/08 09:11:49 by jvander-         ###   ########.fr       */
+/*   Updated: 2021/07/21 11:44:19 by jvander-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,20 @@ char	*ft_strncpy(const char *s, int size)
 	return (to_ret);
 }
 
+char	**ft_free(char **s, int len_tab)
+{
+	int	i;
+
+	i = 0;
+	while (i < len_tab)
+	{
+		free(s[i]);
+		i++;
+	}
+	free(s);
+	return (NULL);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**to_ret;
@@ -79,7 +93,7 @@ char	**ft_split(char const *s, char c)
 	if (s == 0 && c == 0)
 		return (NULL);
 	nbr_words = ft_count_words(s, c);
-	to_ret = malloc(sizeof(char *) * (nbr_words + 1));
+	to_ret = ft_calloc((nbr_words + 1), sizeof(char *));
 	if (to_ret == NULL)
 		return (NULL);
 	i = 0;
@@ -90,8 +104,9 @@ char	**ft_split(char const *s, char c)
 			i++;
 		size_word = ft_wordlen(s + i, c);
 		to_ret[j++] = ft_strncpy(s + i, size_word);
+		if (to_ret[j - 1] == NULL)
+			return (ft_free(to_ret, nbr_words + 1));
 		i += size_word;
 	}
-	to_ret[nbr_words] = 0;
 	return (to_ret);
 }

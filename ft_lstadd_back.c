@@ -6,7 +6,7 @@
 /*   By: jvander- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 11:15:01 by jvander-          #+#    #+#             */
-/*   Updated: 2021/07/07 14:00:29 by jvander-         ###   ########.fr       */
+/*   Updated: 2021/07/21 11:36:34 by jvander-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	ft_lstadd_back(t_list **alst, t_list *new)
 {
 	t_list	*temp;
 
+	if (alst == NULL)
+		return ;
 	temp = *alst;
 	if (temp != NULL && new != NULL)
 	{

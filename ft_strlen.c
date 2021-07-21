@@ -6,11 +6,13 @@
 /*   By: jvander- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 11:48:56 by jvander-          #+#    #+#             */
-/*   Updated: 2021/07/02 11:49:34 by jvander-         ###   ########.fr       */
+/*   Updated: 2021/07/20 14:54:10 by jvander-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+#include "libft.h"
+
+size_t	ft_strlen(const char *str)
 {
 	int	count;
 

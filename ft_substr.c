@@ -6,7 +6,7 @@
 /*   By: jvander- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 12:03:27 by jvander-          #+#    #+#             */
-/*   Updated: 2021/07/08 07:56:58 by jvander-         ###   ########.fr       */
+/*   Updated: 2021/07/20 15:16:42 by jvander-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*sub_str;
 	int		i;
-	int		size;
+	size_t	size;
 
 	i = 0;
 	if (s == NULL)
