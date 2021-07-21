@@ -16,7 +16,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 {
 	int		count;
 	char	*new_str;
-	int		s1_len;
+	size_t	s1_len;
 
 	if (s1 == NULL || s2 == NULL)
 		return (NULL);

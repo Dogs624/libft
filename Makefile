@@ -61,8 +61,8 @@ BONUS	=	ft_lstnew.c \
 			ft_lstclear.c \
 			ft_lstiter.c \
 			ft_lstmap.c
-
-
+%.o: %.c
+	$(CC) $(FLAGS) -o $@ -c $?
 
 OBJ		=	$(SRC:%.c=%.o)
 
@@ -83,4 +83,4 @@ fclean:	clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus
