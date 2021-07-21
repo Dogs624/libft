@@ -19,6 +19,8 @@ char	*ft_strrchr(const char *s, int c)
 	int		pos_c;
 	int		i;
 
+	if (s == NULL)
+		return (NULL);
 	i = 0;
 	char_s = (char *) s;
 	char_c = (char) c;

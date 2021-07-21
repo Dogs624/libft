@@ -14,8 +14,8 @@
 
 int	ft_isset(char c, char const *set)
 {
-	int		i;
-	int		set_len;
+	size_t	i;
+	size_t	set_len;
 
 	i = 0;
 	set_len = ft_strlen(set);
@@ -40,9 +40,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (NULL);
 	begin_count = 0;
 	end_count = ft_strlen(s1) - 1;
-	while (ft_isset(s1[begin_count], set) && s1[begin_count])
+	while (s1[begin_count] && ft_isset(s1[begin_count], set))
 		begin_count++;
-	while (end_count > begin_count && ft_isset(s1[end_count], set))
+	while (s1[end_count] && end_count > begin_count
+		&& ft_isset(s1[end_count], set))
 		end_count--;
 	new_str = ft_substr(s1, begin_count, end_count - begin_count + 1);
 	if (new_str == NULL)

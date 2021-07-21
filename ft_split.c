@@ -73,7 +73,7 @@ char	**ft_free(char **s, int len_tab)
 	int	i;
 
 	i = 0;
-	while (i < len_tab)
+	while (i < len_tab && s[i])
 	{
 		free(s[i]);
 		i++;
@@ -90,7 +90,7 @@ char	**ft_split(char const *s, char c)
 	int		size_word;
 	int		j;
 
-	if (s == 0 && c == 0)
+	if (s == NULL)
 		return (NULL);
 	nbr_words = ft_count_words(s, c);
 	to_ret = ft_calloc((nbr_words + 1), sizeof(char *));
