@@ -34,9 +34,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		begin_count;
 	int		end_count;
 
-	if (s1 == NULL)
-		return (NULL);
-	if (set == NULL)
+	if (s1 == NULL || set == NULL)
 		return (NULL);
 	begin_count = 0;
 	end_count = ft_strlen(s1) - 1;
