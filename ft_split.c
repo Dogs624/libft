@@ -17,25 +17,16 @@ int	ft_count_words(const char *s, char c)
 	int		i;
 	int		nbr_words;
 
-	i = 0;
+	i = 1;
 	nbr_words = 0;
-	if (s == 0 || s[0] == 0)
+	if (s == NULL || s[0] == 0)
 		return (0);
-	if (c == 0)
-		return (1);
-	while (s[i] != '\0')
+	if (s[0] != c)
+		nbr_words++;
+	while (s[i])
 	{
-		if (s[i] != c)
-		{
-			i++;
+		if (s[i] != c && s[i - 1] == c)
 			nbr_words++;
-		}
-		while (s[i] != c)
-		{
-			if (s[i] == '\0')
-				return (nbr_words);
-			i++;
-		}
 		i++;
 	}
 	return (nbr_words);
@@ -46,7 +37,7 @@ int	ft_wordlen(const char *s, char c)
 	int		i;
 
 	i = 0;
-	while (s[i] != '\0' && s[i] != c)
+	while (s[i] && s[i] != c)
 		i++;
 	return (i);
 }
@@ -55,12 +46,12 @@ char	*ft_strncpy(const char *s, int size)
 {
 	char	*to_ret;
 
-	to_ret = malloc(sizeof(char) * (size));
+	to_ret = malloc(sizeof(char) * (size + 1));
 	if (to_ret == NULL)
 		return (NULL);
 	to_ret[size] = '\0';
 	size--;
-	while (size >= 0)
+	while (size >= 0 && s[size])
 	{
 		to_ret[size] = s[size];
 		size--;
@@ -73,6 +64,8 @@ char	**ft_free(char **s, int len_tab)
 	int	i;
 
 	i = 0;
+	if (s == NULL)
+		return (NULL);
 	while (i < len_tab && s[i])
 	{
 		free(s[i]);
