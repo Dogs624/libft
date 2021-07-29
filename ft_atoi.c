@@ -19,17 +19,25 @@ int	ft_check_longmax(int negative)
 	return (-1);
 }
 
+int	ft_isspace(char c)
+{
+	if (c == '\t' || c == '\v' || c == '\r' || c == '\f'
+		|| c == '\n' || c == ' ')
+		return (1);
+	return (0);
+}
+
 int	ft_atoi(const char *s)
 {
 	unsigned long long	res;
 	int					i;
 	int					negative;
+	unsigned long long	tmp;
 
 	i = 0;
 	negative = 1;
 	res = 0;
-	while (s[i] == '\t' || s[i] == '\v' || s[i] == '\r' || s[i] == '\f'
-		|| s[i] == '\n' || s[i] == ' ')
+	while (ft_isspace(s[i]))
 		i++;
 	if (s[i] == '-' || s[i] == '+')
 	{
@@ -39,11 +47,11 @@ int	ft_atoi(const char *s)
 	}
 	while (s[i] >= '0' && s[i] <= '9')
 	{
+		tmp = res;
 		res *= 10;
-		res += s[i] - 48;
-		i++;
+		res += s[i++] - 48;
+		if (res > LLONG_MAX || res < tmp)
+			return (ft_check_longmax(negative));
 	}
-	if (res > LLONG_MAX)
-		return (ft_check_longmax(negative));
 	return (res * negative);
 }
